@@ -1,0 +1,78 @@
+/**
+  Assignment 1: Dancing man
+
+  Useful resources:
+  - Using CSS animations:
+    https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Animations/Using
+  - @keyframes:
+    https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@keyframes
+  - transform-origin:
+    https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/transform-origin
+  - animation-delay:
+    https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/animation-delay
+  - transform (rotate / translate / scale):
+    https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Transforms/Using
+  - Animatable properties:
+    https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Animations/Animatable_properties
+  - https://cubic-bezier.com
+  - https://easings.net
+**/
+
+
+.head {
+  animation: jump-head 1.2s ease-in-out infinite;
+}
+
+.body {
+  animation: jump-body 1.2s ease-in-out infinite;
+}
+
+.left.hand {
+  transform-origin: 100% 0;
+  animation: jump-left-hand 1.2s ease-in-out infinite;
+}
+
+.right.hand {
+  transform-origin: 0 0;
+  animation: jump-right-hand 1.2s ease-in-out infinite;
+}
+
+.left.foot {
+  transform-origin: 100% 0;
+  animation: jump-left-foot 1.2s ease-in-out infinite;
+}
+
+.right.foot {
+  transform-origin: 0 0;
+  animation: jump-right-foot 1.2s ease-in-out infinite;
+}
+
+@keyframes jump-head {
+  0%, 100% { transform: translateY(0); }
+  45%, 65% { transform: translateY(-45px); }
+}
+
+@keyframes jump-body {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  45%, 65% { transform: translateY(-25px) rotate(-4deg); }
+}
+
+@keyframes jump-left-hand {
+  0%, 100% { transform: rotate(0); }
+  45%, 65% { transform: rotate(35deg); }
+}
+
+@keyframes jump-right-hand {
+  0%, 100% { transform: rotate(0); }
+  45%, 65% { transform: rotate(-35deg); }
+}
+
+@keyframes jump-left-foot {
+  0%, 100% { transform: rotate(0); }
+  45%, 65% { transform: rotate(25deg); }
+}
+
+@keyframes jump-right-foot {
+  0%, 100% { transform: rotate(0); }
+  45%, 65% { transform: rotate(-25deg); }
+}

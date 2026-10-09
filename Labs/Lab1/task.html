@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 4 - Tailwind Centering</title>
+    <!-- Include Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body class="min-h-screen bg-gray-100">
+
+    <!-- ==================================== -->
+    <!-- TODO 1: Center using FLEXBOX -->
+    <!-- ==================================== -->
+    <div class="flex min-h-[33.333vh] items-center justify-center bg-blue-100">
+      <div class="rounded-lg bg-blue-600 px-6 py-4 font-semibold text-white shadow-md">
+        Centered Box (Flex)
+      </div>
+    </div>
+
+    <!-- ==================================== -->
+    <!-- TODO 2: Center using GRID -->
+    <!-- ==================================== -->
+    <div class="grid min-h-[33.333vh] place-items-center bg-green-100">
+      <div class="rounded-lg bg-green-600 px-6 py-4 font-semibold text-white shadow-md">
+        Centered Box (Grid)
+      </div>
+    </div>
+
+    <!-- ==================================== -->
+    <!-- TODO 3: Center using ABSOLUTE positioning -->
+    <!-- ==================================== -->
+    <div class="relative min-h-[33.333vh] bg-orange-100">
+      <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg bg-orange-600 px-6 py-4 font-semibold text-white shadow-md">
+        Centered Box (Absolute)
+      </div>
+    </div>
+
+  </body>
+</html>
