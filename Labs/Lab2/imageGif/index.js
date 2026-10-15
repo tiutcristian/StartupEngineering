@@ -13,6 +13,14 @@ function gifMaker () {
     'img/4.png',
     'img/5.png'
   ]
+
+  const img = document.querySelector('img')
+  let current = 0
+
+  setInterval(() => {
+    current = (current + 1) % images.length
+    img.src = images[current]
+  }, 3000)
 }
 
 document.addEventListener('DOMContentLoaded', gifMaker)

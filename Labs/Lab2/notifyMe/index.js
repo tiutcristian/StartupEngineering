@@ -12,9 +12,13 @@
  */
 
 function notifyMe () {
-  // TODO:
-
-  let notification = new Notification('Hi there!')
+  if (Notification.permission === 'granted') {
+    new Notification('Hi there!')
+  } else if (Notification.permission !== 'denied') {
+    Notification.requestPermission().then((permission) => {
+      if (permission === 'granted') new Notification('Hi there!')
+    })
+  }
 }
 
 /**
