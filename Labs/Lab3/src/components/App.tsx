@@ -1,5 +1,6 @@
 import "../App.css";
 import "../index.css";
+import ToDoList from "./ToDoList";
 
 export type Todo = {
   id: string;
@@ -16,7 +17,7 @@ function App() {
 
   return (
     <div className="flex justify-center font-mono">
-      {/* TODO: use ToDoList.tsx component here*/}
+      <ToDoList todos={todosInitial} />
     </div>
   );
 }
