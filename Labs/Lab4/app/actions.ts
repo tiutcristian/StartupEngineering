@@ -44,7 +44,7 @@ export async function createItem(text: Todo["text"]) {
  * @param id the id of the todo item we want to delete
  */
 export async function deleteItem(id: Todo["id"]) {
-  //TODO: implement deleteItem. It takes an id and deletes the item with that id from the itemsFromBackend array. The goal of this method is to override the itemsFromBackend array with the itemsFromBackend array without the item with the id passed as an argument.
+  itemsFromBackend = itemsFromBackend.filter((item) => item.id !== id);
 }
 
 /**
@@ -75,7 +75,8 @@ export async function markDone(id: Todo["id"]) {
  * @param text the new text of the todo item
  */
 export const updateItem = async (id: Todo["id"], text: Todo["text"]) => {
-  //TODO: implement updateItem. It takes an id and a text and updates the item with that id in the itemsFromBackend array.
-  //TODO: you should use the find method to find the item with the id passed as an argument and update its text property with the text passed as an argument.
-  //TODO: the code should be similar to the markDone and markIncomplete methods.
+  const item = itemsFromBackend.find((item) => item.id === id);
+  if (item) {
+    item.text = text;
+  }
 }
