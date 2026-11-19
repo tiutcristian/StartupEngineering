@@ -37,22 +37,42 @@ export async function createItem(text: Todo["text"]) {
 }
 
 export async function deleteItem(id: Todo["_id"]) {
-	console.log(id);
-	// TODO: delete an item
+	try {
+		await connectMongo();
+		const deleted = await ToDo.findByIdAndDelete(id);
+		console.log("Deleted Todo:", deleted);
+	} catch (e) {
+		console.error(e);
+		throw e;
+	}
+}
+
+async function setCompleted(id: Todo["_id"], completed: boolean) {
+	try {
+		await connectMongo();
+		const updated = await ToDo.findByIdAndUpdate(id, { completed }, { new: true });
+		console.log("Updated Todo:", updated);
+	} catch (e) {
+		console.error(e);
+		throw e;
+	}
 }
 
 export async function markIncomplete(id: Todo["_id"]) {
-	console.log(id);
-	// TODO: mark a task as incomplete
+	await setCompleted(id, false);
 }
 
 export async function markDone(id: Todo["_id"]) {
-	console.log(id);
-	// TODO: mark a task as done
+	await setCompleted(id, true);
 }
 
 export const updateItem = async (id: Todo["_id"], text: Todo["text"]) => {
-	console.log(id);
-	console.log(text);
-	// TODO: update an item
+	try {
+		await connectMongo();
+		const updated = await ToDo.findByIdAndUpdate(id, { text }, { new: true, runValidators: true });
+		console.log("Updated Todo:", updated);
+	} catch (e) {
+		console.error(e);
+		throw e;
+	}
 };
